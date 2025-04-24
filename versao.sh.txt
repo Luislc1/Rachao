@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "⚙️ Iniciando processo de versão..."
+
+# Passo 1: Pede nome da versão
+read -p "📌 Digite o nome da versão (ex: v1.1): " versao
+
+# Passo 2: Cria branch com o nome da versão
+git checkout -b "$versao"
+
+echo "🌿 Branch '$versao' criada. Agora você pode trabalhar nela."
+
+# Passo 3: Após alterações, salvar o progresso
+read -p "📝 Deseja fazer commit agora? (s/n): " fazer_commit
+
+if [ "$fazer_commit" = "s" ]; then
+  git add .
+  read -p "✏️ Escreva a mensagem do commit: " mensagem
+  git commit -m "$mensagem"
+fi
+
+# Passo 4: Voltar para main e mesclar
+git checkout main
+git merge "$versao"
+
+# Passo 5: Criar uma tag da versão
+git tag -a "$versao" -m "Versão $versao criada"
+
+# Passo 6: Enviar pro GitHub
+git push origin main
+git push origin "$versao"
+
+echo "✅ Versão '$versao' enviada com sucesso!"

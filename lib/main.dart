@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rachao/Views/home.dart';
-import 'package:rachao/Views/login.dart';
+import 'package:rachao/Views/Home/esporte.dart';
+import 'package:rachao/Views/Login/login.dart';
+import 'package:rachao/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      initialRoute: '/',
+      routes: AppRoutes.routes,
     );
   }
 }
-

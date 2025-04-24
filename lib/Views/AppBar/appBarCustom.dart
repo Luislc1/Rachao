@@ -27,7 +27,11 @@ class _AppBarCustomState extends State<AppBarCustom> {
             bottom: Radius.circular(10),
           ),
         ),
-        leading: Icon(Icons.menu),
+        leading: IconButton(
+          icon: Icon(Icons.exit_to_app, size: 35),
+          onPressed: () => Navigator.pop(context, '/login'),
+          tooltip: 'Sair',
+        ),
         backgroundColor: Color(0xfe003b8a),
         actions: [
           Padding(

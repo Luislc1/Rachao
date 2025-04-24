@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:rachao/Views/appBarCustom.dart';
-import 'package:rachao/Views/BottomNavigation.dart';
+import 'package:rachao/Views/BottomNavigation/BottomNavigation.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class SportScreen extends StatefulWidget {
+  const SportScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SportScreen> createState() => _SportScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SportScreenState extends State<SportScreen> {
   int _currentIndex = 0;
 
   void _onTabTapped(int index) {
@@ -25,9 +24,38 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: AppBarCustom(),
+      appBar: AppBar(
+        title: Text(
+          'RACHÃO',
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
+        toolbarHeight: 80,
+        shadowColor: Colors.black,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(10),
+          ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, size: 35),
+          onPressed: () => Navigator.pop(context, '/home'),
+          tooltip: 'Sair',
+        ),
+        backgroundColor: Color(0xfe003b8a),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://avatar.iran.liara.run/public/boy?username=Ash'),
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -48,21 +76,21 @@ class _HomeScreenState extends State<HomeScreen> {
             _buildSportButton(
               label: 'Futsal',
               imagePath: 'assets/imagens/futsal.png',
-              description: 'Domine a bola, brilhe na quadra!',
+              description: 'Expresse a arte do futebol brasileiro!',
               gradient: const [Colors.green, Colors.greenAccent],
             ),
             const SizedBox(height: 20),
             _buildSportButton(
               label: 'Handebol',
               imagePath: 'assets/imagens/handebol.png',
-              description: 'Domine a bola, brilhe na quadra!',
+              description: 'Domine a bola, arremesse longe!',
               gradient: const [Colors.lightBlue, Colors.blueAccent],
             ),
             const SizedBox(height: 20),
             _buildSportButton(
               label: 'Vôlei',
               imagePath: 'assets/imagens/vôlei.png',
-              description: 'Domine a bola, brilhe na quadra!',
+              description: 'Vire a bola e jogue para ganhar!',
               gradient: const [Colors.red, Colors.redAccent],
             ),
           ],

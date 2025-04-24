@@ -17,22 +17,22 @@ class LoginScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 48,
                 fontWeight: FontWeight.bold,
-                color: Color(0xfe003b8a),
+                color: Colors.black,
               )),
           Text('Quadras esportivas',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Color(0xfe003b8a),
+                color: Colors.black,
               )),
           SizedBox(
             height: 50,
           ),
           Text('Login',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Color(0xfe003b8a),
+                color: Colors.black,
               )),
           SizedBox(
             height: 100,
@@ -41,6 +41,7 @@ class LoginScreen extends StatelessWidget {
             width: 350,
             child: TextField(
               decoration: InputDecoration(
+                prefixIconColor: Colors.black,
                 prefixIcon: Icon(Icons.email), // Ícone de email à esquerda do campo de texto,  
                 labelText: 'Email',
                 border: OutlineInputBorder(
@@ -55,7 +56,10 @@ class LoginScreen extends StatelessWidget {
           Container(
             width: 350,
             child: TextField(
+              obscureText: true,
               decoration: InputDecoration(
+                
+                prefixIconColor: Colors.black,
                 prefixIcon: Icon(Icons.lock), // Ícone de bloqueio à esquerda do campo de texto,
                 labelText: 'Senha',
                 border: OutlineInputBorder(
@@ -70,9 +74,11 @@ class LoginScreen extends StatelessWidget {
           Container(
             width: 300,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/menu');
+              },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xfe003b8a),
+                backgroundColor: Color(0xfe002555),
               ),
               child: Text(
                 'Entrar',
